@@ -10,9 +10,8 @@ p {	color:#fff;	}
 	
 body, html {	
 	height: 100%;	}
-
 .parallax {
-	height: 50%; 
+	height: 100%; 
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -32,7 +31,6 @@ body, html {
   font: 400 15px/1.8 "Lato", sans-serif;
   color: #777;
 }
-
 .bgimg-1, .bgimg-2, .bgimg-3 {
   position: relative;
   opacity: 0.65;
@@ -40,23 +38,19 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 .bgimg-1 {
   background-image: url('https://media.giphy.com/media/u98zWbe3jgJoI/giphy.gif');
   min-height: 100%;
 }
-
 .bgimg-2 {
-  background-image: url('https://github.com/rasareachan/portfolio/blob/gh-pages/33804777954_0ac2c28dcc_q.jpg');
+  background-image: url('https://raw.githubusercontent.com/rasareachan/portfolio/gh-pages/contem.jpg');
   min-height: 400px;
 }
-
 .bgimg-3 {
   background-image: url("https://maxpull-gdvuch3veo.netdna-ssl.com/wp-content/uploads/2012/03/shasta-daisies.jpg");
   min-height: 400px;
 }
-
 .caption {
   position: absolute;
   left: 0;
@@ -66,7 +60,6 @@ body, html {
   color: #fff;
   opacity: 0.5;
 }
-
 .caption span.border {
   background-color: #fff;
   color: #000;
@@ -74,14 +67,53 @@ body, html {
   font-size: 40px;
   letter-spacing: 10px;
 }
-
 h3 {
   letter-spacing: 5px;
   text-transform: uppercase;
   font: 20px "Lato", sans-serif;
   color: #111;
   }
+  
+  /* Slideshow container */
+.slideshow-container {
+padding: 18px;
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
 
+/* The dots/bullets/indicators */
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .7} 
+  to {opacity: 1}
+}
 </style>
 	
 <head>
@@ -94,11 +126,34 @@ h3 {
 <body>
 	<div class="bgimg-1"></div>
 	<div class="parallax">
-    	<div align="center" style="height:500px;background-color:#fff;font-size:36px;margin-top:50px;">
+    	<div align="center" style="height:200px;background-color:#fff;font-size:36px;margin-top:50px;">
 "Did you know that baby carrots are big carrots, but smaaall?" ~Erika Wu
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="img_nature_wide.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="img_fjords_wide.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="https://github.com/rasareachan/portfolio/blob/gh-pages/cake.jpg?raw=true" style="width:100%">
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
 		</div>
   		<div class="caption">
-  		<span class="border">SCROLL DOWN</span>
+  		<span class="border">ROZ, RASA, DRAGON.</span>
   		</div>
   	</div>
 
@@ -109,4 +164,27 @@ h3 {
 	<div class="parallax"></div>
     
 </body>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 4000); // Change image every 2 seconds
+}
+</script>
+
 </html>
